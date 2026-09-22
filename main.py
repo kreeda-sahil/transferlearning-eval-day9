@@ -1,11 +1,3 @@
-"""
-main.py
-Runs the full experiment: frozen feature-extraction vs partial fine-tuning,
-evaluates both on the same test set, and saves all comparison artifacts.
-
-Usage:
-    python src/main.py
-"""
 
 import os
 from data_loader import get_dataloaders
@@ -23,7 +15,6 @@ def main():
     )
     num_classes = len(class_names)
 
-    # 2. Experiment 1 — Frozen backbone (feature extraction)
     print("\n" + "=" * 60)
     print("EXPERIMENT 1: Frozen backbone (feature extraction)")
     print("=" * 60)
@@ -37,7 +28,6 @@ def main():
         frozen_model, test_loader, class_names, label="frozen"
     )
 
-    # 3. Experiment 2 — Partial fine-tuning (layer3, layer4, fc unfrozen)
     print("\n" + "=" * 60)
     print("EXPERIMENT 2: Partial fine-tuning")
     print("=" * 60)
@@ -53,7 +43,7 @@ def main():
         finetune_model, test_loader, class_names, label="finetuned"
     )
 
-    # 4. Compare
+    #Compare
     save_comparison_csv([summary_frozen, summary_finetune])
     plot_training_curves(history_frozen, history_finetune)
 

@@ -1,21 +1,3 @@
-"""
-data_loader.py
-Builds train/val/test DataLoaders using torchvision.ImageFolder.
-
-Expected directory structure:
-data/
-├── train/
-│   ├── class_a/
-│   ├── class_b/
-│   └── ...
-├── val/
-│   ├── class_a/
-│   └── ...
-└── test/
-    ├── class_a/
-    └── ...
-"""
-
 import os
 
 from torchvision import datasets, transforms
@@ -51,10 +33,7 @@ def get_transforms():
 
 
 def get_dataloaders(data_dir="data", batch_size=32, num_workers=2):
-    """
-    data_dir must contain train/, val/, test/ subfolders in ImageFolder format.
-    Returns: train_loader, val_loader, test_loader, class_names
-    """
+    
     train_transforms, eval_transforms = get_transforms()
 
     train_ds = datasets.ImageFolder(os.path.join(data_dir, "train"), transform=train_transforms)

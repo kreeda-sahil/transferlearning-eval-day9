@@ -1,10 +1,3 @@
-"""
-train.py
-Generic training loop used for both experiments (frozen and fine-tuned).
-Tracks train/val loss + accuracy per epoch, and applies early stopping
-so we can see overfitting behavior directly in the returned history.
-"""
-
 import time
 import copy
 import torch
@@ -31,7 +24,7 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs=15,
     for epoch in range(num_epochs):
         start = time.time()
 
-        # ---- Train phase ----
+        # Train phase 
         model.train()
         running_loss, running_correct, total = 0.0, 0, 0
 
@@ -52,7 +45,7 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs=15,
         train_loss = running_loss / total
         train_acc = running_correct / total
 
-        # ---- Validation phase ----
+        # Validation phase 
         model.eval()
         val_running_loss, val_running_correct, val_total = 0.0, 0, 0
 

@@ -1,11 +1,3 @@
-"""
-model.py
-Builds a ResNet18 with a new classification head, and provides
-utilities to freeze/unfreeze layers for the two experiments:
-
-  1. build_frozen_model()      -> feature extraction (backbone fully frozen)
-  2. build_partial_finetune_model() -> layer3+layer4 unfrozen, rest frozen
-"""
 
 import torch
 import torch.nn as nn

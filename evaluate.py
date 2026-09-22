@@ -1,11 +1,3 @@
-"""
-evaluate.py
-Runs a trained model on the test set and produces:
-  - confusion matrix (plot + raw array)
-  - classification report (precision, recall, F1 per class + macro/weighted avg)
-  - a metrics_comparison.csv row for comparing experiments
-"""
-
 import torch
 import numpy as np
 import pandas as pd
